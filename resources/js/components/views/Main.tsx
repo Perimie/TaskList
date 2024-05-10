@@ -12,7 +12,7 @@ const Main = () => {
                             Hi Jerimie
                         </div>
                         <div className='text-sm tracking-wider leading-5 text-gray-300 font-lighter'>
-                            Welcome Back to the workspace tanga tanga mo
+                            Welcome Back to the workspace make your todo list today!
                         </div>
                     </div>
                     <TaskForm/>
