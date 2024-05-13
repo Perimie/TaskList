@@ -36,4 +36,44 @@ class TaskApiController extends Controller
         ]);
 
     }
+
+    public function displayTask(){
+        return response()->json(['data' => $this->taskModel->getTask()],200);
+    }
+
+
+    public function markAsDone($taskId){
+        $isUpdated = $this->taskModel->markAsDone($taskId);
+        if ($isUpdated){
+            return response()->json(['message' => 'Task marked as done'],200);
+        }
+
+        return response()->json([
+            'error' =>'Failed to update'
+        ],422);
+    }
+
+
+    public function deleteTask($taskId){
+        $isDeleted = $this->taskModel->deleteTask($taskId);
+
+        if ($isDeleted){
+            return response()->json(['message' => 'Task is deleted'],200);
+        }
+
+        return response()->json([
+            'error' =>'Failed to delete'
+        ],422);
+    }
+
+    public function deleteAllTasks()
+    {   
+        $deleted = $this->taskModel::deleteAllTasks();
+
+        if ($deleted) {
+            return response()->json(['message' => 'All tasks are deleted'], 200);
+        }
+
+        return response()->json(['error' => 'Failed to delete tasks'], 422);
+    }
 }

@@ -1,11 +1,13 @@
 import * as React from 'react'
 import apiServices from '../../services/apiServices';
+import { useTaskContext } from '../../context/TaskContext';
 
 
 const TaskForm = () =>{
 
     const [title, setTitle] = React.useState('');
     const [description, setDescription] = React.useState('');
+    const {updateContextData} = useTaskContext();
 
 
     const handleSubmit = () => {
@@ -17,6 +19,7 @@ const TaskForm = () =>{
         .then(() => {
            setTitle("");
            setDescription("");
+           updateContextData();
         });
     };
     return (

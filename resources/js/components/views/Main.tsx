@@ -1,5 +1,6 @@
 import React from 'react'
 import TaskForm from './Forms/TaskForm';
+import TaskList from './tasks/TaskList';
 
 
 const Main = () => {
@@ -17,7 +18,7 @@ const Main = () => {
                     </div>
                     <TaskForm/>
                 </div>
-                <div className='w-6/12'>{}</div>
+                <div className='w-6/12'><TaskList/> </div>
             </div>
         
         </div>
